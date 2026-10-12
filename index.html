@@ -2,23 +2,82 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bonjour Mauritanie</title>
-  <style>
+  <title>Bonjour Mauritanie</title>  <style>
     body {
-      background-color: lightblue;
-      color: white;
+      margin: 0;
       font-family: Arial, sans-serif;
+      background-color: lightblue;
       text-align: center;
-      font-size: 24px;
     }
+
+    header {
+      background-color: #006233;
+      color: white;
+      padding: 20px;
+    }
+
+    nav {
+      background-color: #ffffff;
+      padding: 15px;
+    }
+
+    nav a {
+      color: #006233;
+      text-decoration: none;
+      margin: 8px;
+      font-weight: bold;
+    }
+
+    main {
+      padding: 30px 15px;
+    }
+
     h1 {
-      color: red;
-      font-size: 40px;
+      color: #006233;
     }
-  </style>
-</head>
-<body>
-  <h1>Bonjour Mauritanie !</h1>
-  <p>Bienvenue sur ma page web.</p>
-</body>
-</html>
+
+    .welcome {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    footer {
+      background-color: #006233;
+      color: white;
+      padding: 15px;
+      margin-top: 30px;
+    }
+  </style></head><body>  <header>
+    <h1>Bonjour Mauritanie !</h1>
+    <p>Découvrez la Mauritanie et ses opportunités</p>
+  </header>  <nav>
+    <a href="#accueil">Accueil</a>
+    <a href="#actualites">Actualités</a>
+    <a href="#bourses">Bourses d’études</a>
+    <a href="#opportunites">Opportunités</a>
+  </nav>  <main>
+    <section id="accueil" class="welcome">
+      <h2>Bienvenue sur notre site</h2>
+      <p>Votre espace pour découvrir les actualités et les opportunités en Mauritanie.</p>
+    </section><section id="actualites">
+  <h2>Actualités</h2>
+  <p>Retrouvez ici les dernières actualités.</p>
+</section>
+
+<section id="bourses">
+  <h2>Bourses d’études</h2>
+  <p>Découvrez les possibilités de bourses et d’études.</p>
+</section>
+
+<section id="opportunites">
+  <h2>Opportunités</h2>
+  <p>Découvrez les offres de formation, de stage et d’emploi.</p>
+</section>
+
+  </main>  <footer>
+    <p>© 2026 Bonjour Mauritanie</p>
+  </footer></body>
+      </html>
