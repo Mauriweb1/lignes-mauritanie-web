@@ -1,229 +1,707 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Mauriweb | فرص موريتانيا</title>
+  <title>Mauriweb - فرص موريتانيا</title>
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background-color: #f3f7fa;
-            color: #222;
-            line-height: 1.8;
-        }
+  <meta name="description" content="Mauriweb: منصة للمنح الدراسية والتعليم والتدريب وفرص العمل في موريتانيا وخارجها.">
 
-        header {
-            background-color: #087f5b;
-            color: white;
-            text-align: center;
-            padding: 25px 10px;
-        }
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        header h1 {
-            margin: 0;
-            font-size: 32px;
-        }
+    body {
+      font-family: Arial, Tahoma, sans-serif;
+      background: #f4f7fb;
+      color: #233044;
+      line-height: 1.8;
+    }
 
-        nav {
-            background-color: #065f46;
-            text-align: center;
-            padding: 12px 5px;
-        }
+    header {
+      background: linear-gradient(135deg, #063b32, #087f5b);
+      color: white;
+      padding: 25px 16px;
+      text-align: center;
+    }
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 8px;
-            display: inline-block;
-        }
+    header h1 {
+      font-size: 34px;
+      margin-bottom: 5px;
+    }
 
-        nav a:hover {
-            color: #ffd43b;
-        }
+    header p {
+      font-size: 16px;
+    }
 
-        .hero {
-            background-color: #d8f3e8;
-            text-align: center;
-            padding: 35px 15px;
-        }
+    .language-switch {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 18px;
+    }
 
-        .container {
-            max-width: 950px;
-            margin: auto;
-            padding: 15px;
-        }
+    .language-switch button {
+      padding: 9px 18px;
+      border: 1px solid white;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 15px;
+      background: white;
+      color: #075b45;
+      font-weight: bold;
+    }
 
-        section {
-            margin: 25px 0;
-        }
+    .language-switch button:hover {
+      background: #d9fbe9;
+    }
 
-        .card {
-            background-color: white;
-            padding: 18px;
-            margin: 15px 0;
-            border-radius: 10px;
-            border: 1px solid #ddd;
-            box-shadow: 0 2px 5px #0000000d;
-        }
+    nav {
+      background: #ffffff;
+      padding: 12px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      box-shadow: 0 2px 8px #00000010;
+    }
 
-        .card h3 {
-            color: #087f5b;
-            margin-top: 0;
-        }
+    nav a {
+      text-decoration: none;
+      color: #075b45;
+      padding: 7px 12px;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 14px;
+    }
 
-        .button {
-            display: inline-block;
-            background-color: #087f5b;
-            color: white;
-            padding: 8px 15px;
-            border-radius: 5px;
-            text-decoration: none;
-        }
+    nav a:hover {
+      background: #e1f5eb;
+    }
 
-        .button:hover {
-            background-color: #065f46;
-        }
+    .container {
+      width: 92%;
+      max-width: 1100px;
+      margin: 25px auto;
+    }
 
-        footer {
-            background-color: #065f46;
-            color: white;
-            text-align: center;
-            padding: 20px 10px;
-            margin-top: 30px;
-        }
-    </style>
+    .welcome {
+      background: white;
+      border-radius: 14px;
+      padding: 28px 20px;
+      text-align: center;
+      margin-bottom: 28px;
+      box-shadow: 0 3px 12px #00000008;
+    }
+
+    .welcome h2 {
+      color: #075b45;
+      margin-bottom: 10px;
+      font-size: 26px;
+    }
+
+    .search-box {
+      display: flex;
+      gap: 8px;
+      max-width: 600px;
+      margin: 22px auto 0;
+    }
+
+    .search-box input {
+      flex: 1;
+      min-width: 0;
+      padding: 13px;
+      border: 1px solid #ccd5df;
+      border-radius: 8px;
+      font-size: 15px;
+    }
+
+    .search-box button {
+      padding: 12px 18px;
+      background: #087f5b;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 15px;
+    }
+
+    section {
+      margin-bottom: 32px;
+    }
+
+    section h2 {
+      color: #075b45;
+      margin-bottom: 15px;
+      font-size: 24px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 3px 12px #0000000b;
+      border-top: 4px solid #087f5b;
+    }
+
+    .card h3 {
+      color: #075b45;
+      margin-bottom: 8px;
+      font-size: 19px;
+    }
+
+    .card p {
+      margin-bottom: 15px;
+      color: #536174;
+      font-size: 15px;
+    }
+
+    .card a {
+      display: inline-block;
+      background: #087f5b;
+      color: white;
+      padding: 9px 14px;
+      border-radius: 7px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .card a:hover {
+      background: #065f46;
+    }
+
+    .notice {
+      background: #fff8df;
+      border-right: 4px solid #e6a700;
+      padding: 14px;
+      border-radius: 8px;
+      margin-top: 20px;
+      font-size: 14px;
+    }
+
+    html[dir="ltr"] .notice {
+      border-right: none;
+      border-left: 4px solid #e6a700;
+    }
+
+    .about {
+      background: white;
+      padding: 22px;
+      border-radius: 12px;
+    }
+
+    footer {
+      background: #063b32;
+      color: white;
+      text-align: center;
+      padding: 25px 15px;
+      margin-top: 40px;
+    }
+
+    footer a {
+      color: #a7f3d0;
+    }
+
+    .empty-message {
+      display: none;
+      text-align: center;
+      padding: 20px;
+      color: #64748b;
+    }
+
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 28px;
+      }
+
+      .welcome h2 {
+        font-size: 22px;
+      }
+
+      .search-box button {
+        padding: 10px;
+      }
+
+      nav a {
+        font-size: 13px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-    <header>
-        <h1>Mauriweb</h1>
-        <p>بوابتك إلى المنح الدراسية والفرص في موريتانيا</p>
-    </header>
+  <header>
+    <h1>Mauriweb</h1>
 
-    <nav>
-        <a href="#home">الرئيسية</a>
-        <a href="#news">الأخبار</a>
-        <a href="#scholarships">المنح الدراسية</a>
-        <a href="#jobs">فرص العمل</a>
-        <a href="#about">من نحن</a>
-    </nav>
+    <p data-ar="منصتك لاكتشاف فرص الدراسة والتدريب والعمل"
+       data-fr="Votre plateforme pour découvrir les opportunités d’études, de formation et d’emploi">
+      منصتك لاكتشاف فرص الدراسة والتدريب والعمل
+    </p>
 
-    <div class="hero" id="home">
-        <h2>مرحبًا بك في Mauriweb</h2>
-        <p>نساعدك على اكتشاف المنح الدراسية وفرص التعليم والعمل.</p>
+    <div class="language-switch">
+      <button type="button" onclick="changeLanguage('ar')">
+        🇸🇦 العربية
+      </button>
+
+      <button type="button" onclick="changeLanguage('fr')">
+        🇫🇷 Français
+      </button>
+    </div>
+  </header>
+
+  <nav>
+    <a href="#home"
+       data-ar="الرئيسية"
+       data-fr="Accueil">الرئيسية</a>
+
+    <a href="#scholarships"
+       data-ar="المنح الدراسية"
+       data-fr="Bourses">المنح الدراسية</a>
+
+    <a href="#medicine"
+       data-ar="دراسة الطب"
+       data-fr="Études de médecine">دراسة الطب</a>
+
+    <a href="#jobs"
+       data-ar="العمل والتدريب"
+       data-fr="Emploi et formation">العمل والتدريب</a>
+
+    <a href="#resources"
+       data-ar="مصادر التعليم"
+       data-fr="Ressources éducatives">مصادر التعليم</a>
+
+    <a href="#about"
+       data-ar="من نحن"
+       data-fr="À propos">من نحن</a>
+
+    <a href="#contact"
+       data-ar="اتصل بنا"
+       data-fr="Contact">اتصل بنا</a>
+  </nav>
+
+  <main class="container">
+
+    <div class="welcome" id="home">
+      <h2
+        data-ar="مرحبًا بك في Mauriweb"
+        data-fr="Bienvenue sur Mauriweb">
+        مرحبًا بك في Mauriweb
+      </h2>
+
+      <p
+        data-ar="نساعد الطلاب والباحثين عن الفرص في موريتانيا على اكتشاف المنح الدراسية وفرص التعليم والتدريب والعمل."
+        data-fr="Nous aidons les étudiants et les personnes en recherche d’opportunités en Mauritanie à découvrir des bourses et des possibilités d’études, de formation et d’emploi.">
+        نساعد الطلاب والباحثين عن الفرص في موريتانيا على اكتشاف المنح الدراسية وفرص التعليم والتدريب والعمل.
+      </p>
+
+      <div class="search-box">
+        <input
+          type="search"
+          id="searchInput"
+          data-placeholder-ar="ابحث عن منحة أو تدريب أو عمل..."
+          data-placeholder-fr="Rechercher une bourse, une formation ou un emploi..."
+          placeholder="ابحث عن منحة أو تدريب أو عمل...">
+
+        <button
+          type="button"
+          onclick="searchCards()"
+          data-ar="بحث"
+          data-fr="Rechercher">بحث</button>
+      </div>
     </div>
 
-    <main class="container">
+    <section id="scholarships">
+      <h2
+        data-ar="🎓 المنح الدراسية"
+        data-fr="🎓 Bourses d’études">
+        🎓 المنح الدراسية
+      </h2>
 
-        <section id="news">
-            <h2>📰 آخر الأخبار</h2>
+      <div class="cards">
 
-            <div class="card">
-                <h3>أخبار التعليم في موريتانيا</h3>
-                <p>تابع أخبار التعليم والمسابقات والفرص التعليمية.</p>
-                <p>سيتم نشر الأخبار الجديدة هنا بعد التحقق من مصادرها.</p>
-            </div>
-        </section>
+        <article class="card searchable">
+          <h3
+            data-ar="المنح التركية"
+            data-fr="Bourses turques">
+            المنح التركية
+          </h3>
 
-        <section id="scholarships">
-            <h2>🎓 المنح الدراسية</h2>
+          <p
+            data-ar="اكتشف برنامج المنح الحكومية التركية وشروط التقديم ومواعيده."
+            data-fr="Découvrez le programme de bourses du gouvernement turc, ses conditions et ses dates de candidature.">
+            اكتشف برنامج المنح الحكومية التركية وشروط التقديم ومواعيده.
+          </p>
 
-            <div class="card">
-                <h3>منح الدراسة في فرنسا</h3>
-                <p>
-                    تعرّف على معلومات الدراسة في فرنسا والمنح المتاحة
-                    وشروط التقديم للطلاب الدوليين.
-                </p>
-                <a class="button"
-                   href="https://www.campusfrance.org/"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    موقع Campus France
-                </a>
-            </div>
+          <a href="https://www.turkiyeburslari.gov.tr/"
+             target="_blank" rel="noopener noreferrer"
+             data-ar="الموقع الرسمي"
+             data-fr="Site officiel">الموقع الرسمي</a>
+        </article>
 
-            <div class="card">
-                <h3>منح الدراسة في أوروبا</h3>
-                <p>
-                    اكتشف معلومات عن برامج التعليم والمنح الأوروبية
-                    وفرص الدراسة الدولية.
-                </p>
-                <a class="button"
-                   href="https://education.ec.europa.eu/"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    بوابة التعليم الأوروبية
-                </a>
-            </div>
+        <article class="card searchable">
+          <h3
+            data-ar="منحة Stipendium Hungaricum"
+            data-fr="Bourse Stipendium Hungaricum">
+            منحة Stipendium Hungaricum
+          </h3>
 
-            <div class="card">
-                <h3>منح الدراسة في روسيا</h3>
-                <p>
-                    تعرّف على معلومات الدراسة في روسيا
-                    وإجراءات التقديم للطلاب الأجانب.
-                </p>
-                <a class="button"
-                   href="https://education-in-russia.com/"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    بوابة الدراسة في روسيا
-                </a>
-            </div>
+          <p
+            data-ar="تعرف على المنحة الهنغارية وإجراءات التقديم للدراسة في هنغاريا."
+            data-fr="Découvrez la bourse hongroise et les démarches pour étudier en Hongrie.">
+            تعرف على المنحة الهنغارية وإجراءات التقديم للدراسة في هنغاريا.
+          </p>
 
-            <div class="card">
-                <h3>البحث عن منح أخرى</h3>
-                <p>
-                    يمكنك البحث عن برامج المنح الدراسية
-                    وفرص التعليم العالي عبر الإنترنت.
-                </p>
-                <a class="button"
-                   href="https://www.studyin-uk.com/"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    معلومات الدراسة في بريطانيا
-                </a>
-            </div>
-        </section>
+          <a href="https://stipendiumhungaricum.hu/"
+             target="_blank" rel="noopener noreferrer"
+             data-ar="التفاصيل"
+             data-fr="En savoir plus">التفاصيل</a>
+        </article>
 
-        <section id="jobs">
-            <h2>💼 فرص العمل والتدريب</h2>
+        <article class="card searchable">
+          <h3
+            data-ar="فرص الدراسة في أوروبا"
+            data-fr="Étudier en Europe">
+            فرص الدراسة في أوروبا
+          </h3>
 
-            <div class="card">
-                <h3>فرص للشباب الموريتاني</h3>
-                <p>
-                    خصصنا هذا القسم لعرض فرص العمل والتدريب
-                    والمسابقات المهنية عند توفر معلومات موثوقة عنها.
-                </p>
-            </div>
-        </section>
+          <p
+            data-ar="استكشف المعلومات الرسمية عن التعليم العالي في أوروبا."
+            data-fr="Consultez les informations officielles sur l’enseignement supérieur en Europe.">
+            استكشف المعلومات الرسمية عن التعليم العالي في أوروبا.
+          </p>
 
-        <section id="about">
-            <h2>ℹ️ من نحن؟</h2>
+          <a href="https://education.ec.europa.eu/"
+             target="_blank" rel="noopener noreferrer"
+             data-ar="اكتشف الفرص"
+             data-fr="Découvrir">اكتشف الفرص</a>
+        </article>
 
-            <div class="card">
-                <p>
-                    Mauriweb منصة تهدف إلى مساعدة الشباب الموريتاني
-                    على الوصول إلى المعلومات المتعلقة بالمنح الدراسية
-                    وفرص التعليم والعمل.
-                </p>
+        <article class="card searchable">
+          <h3
+            data-ar="الدراسة في فرنسا"
+            data-fr="Étudier en France">
+            الدراسة في فرنسا
+          </h3>
 
-                <p>
-                    نعمل على تقديم المعلومات بوضوح مع الإشارة
-                    إلى المصادر الأصلية للفرص.
-                </p>
-            </div>
-        </section>
+          <p
+            data-ar="معلومات عن الدراسة في فرنسا وإجراءات الترشح للطلاب الدوليين."
+            data-fr="Informations sur les études en France et les démarches pour les étudiants internationaux.">
+            معلومات عن الدراسة في فرنسا وإجراءات الترشح للطلاب الدوليين.
+          </p>
 
-    </main>
+          <a href="https://www.campusfrance.org/"
+             target="_blank" rel="noopener noreferrer"
+             data-ar="موقع Campus France"
+             data-fr="Site Campus France">موقع Campus France</a>
+        </article>
 
-    <footer>
-        <p>© 2026 Mauriweb - جميع الحقوق محفوظة</p>
-        <p>منصة للمعلومات والفرص في موريتانيا</p>
-    </footer>
+        <article class="card searchable">
+          <h3
+            data-ar="الدراسة في روسيا"
+            data-fr="Étudier en Russie">
+            الدراسة في روسيا
+          </h3>
+
+          <p
+            data-ar="اطلع على بوابة التقديم الرسمية للطلاب الأجانب الراغبين في الدراسة بروسيا."
+            data-fr="Consultez le portail officiel destiné aux étudiants étrangers souhaitant étudier en Russie.">
+            اطلع على بوابة التقديم الرسمية للطلاب الأجانب الراغبين في الدراسة بروسيا.
+          </p>
+
+          <a href="https://education-in-russia.com/"
+             target="_blank" rel="noopener noreferrer"
+             data-ar="بوابة الدراسة"
+             data-fr="Portail des études">بوابة الدراسة</a>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="medicine">
+      <h2
+        data-ar="🩺 دراسة الطب"
+        data-fr="🩺 Études de médecine">
+        🩺 دراسة الطب
+      </h2>
+
+      <div class="cards">
+
+        <article class="card searchable">
+          <h3
+            data-ar="الطب البشري"
+            data-fr="Médecine humaine">
+            الطب البشري
+          </h3>
+
+          <p
+            data-ar="ابحث عن شروط دراسة الطب، والجامعات، واللغات المطلوبة، والمنح المتاحة."
+            data-fr="Recherchez les conditions d’accès aux études de médecine, les universités, les langues requises et les bourses disponibles.">
+            ابحث عن شروط دراسة الطب، والجامعات، واللغات المطلوبة، والمنح المتاحة.
+          </p>
+
+          <a href="https://www.campusfrance.org/"
+             target="_blank" rel="noopener noreferrer"
+             data-ar="معلومات الدراسة في فرنسا"
+             data-fr="Informations sur les études en France">
+            معلومات الدراسة في فرنسا
+          </a>
+        </article>
+
+        <article class="card searchable">
+          <h3
+            data-ar="نصائح للطلاب"
+            data-fr="Conseils aux étudiants">
+            نصائح للطلاب
+          </h3>
+
+          <p
+            data-ar="تعرف على كيفية الاستعداد للتقديم الجامعي وتجهيز الوثائق المطلوبة."
+            data-fr="Découvrez comment préparer une candidature universitaire et réunir les documents nécessaires.">
+            تعرف على كيفية الاستعداد للتقديم الجامعي وتجهيز الوثائق المطلوبة.
+          </p>
+
+          <a href="https://education.ec.europa.eu/"
+             target="_blank" rel="noopener noreferrer"
+             data-ar="مصادر تعليمية"
+             data-fr="Ressources éducatives">مصادر تعليمية</a>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="jobs">
+      <h2
+        data-ar="💼 فرص العمل والتدريب"
+        data-fr="💼 Emploi et formation">
+        💼 فرص العمل والتدريب
+      </h2>
+
+      <div class="cards">
+
+        <article class="card searchable">
+          <h3
+            data-ar="فرص العمل في موريتانيا"
+            data-fr="Emploi en Mauritanie">
+            فرص العمل في موريتانيا
+          </h3>
+
+          <p
+            data-ar="تابع المواقع الرسمية وابحث عن إعلانات التوظيف والتدريب المتاحة."
+            data-fr="Consultez les sites officiels pour rechercher des offres d’emploi et de formation.">
+            تابع المواقع الرسمية وابحث عن إعلانات التوظيف والتدريب المتاحة.
+          </p>
+
+          <a href="https://www.emploi.gov.mr/"
+             target="_blank" rel="noopener noreferrer"
+             data-ar="زيارة الموقع"
+             data-fr="Visiter le site">زيارة الموقع</a>
+        </article>
+
+        <article class="card searchable">
+          <h3
+            data-ar="التعلم المجاني عبر الإنترنت"
+            data-fr="Apprentissage gratuit en ligne">
+            التعلم المجاني عبر الإنترنت
+          </h3>
+
+          <p
+            data-ar="اكتسب مهارات جديدة من خلال دروس وموارد تعليمية عبر الإنترنت."
+            data-fr="Développez de nouvelles compétences grâce à des cours et ressources pédagogiques en ligne.">
+            اكتسب مهارات جديدة من خلال دروس وموارد تعليمية عبر الإنترنت.
+          </p>
+
+          <a href="https://www.open.edu/openlearn/"
+             target="_blank" rel="noopener noreferrer"
+             data-ar="ابدأ التعلم"
+             data-fr="Commencer à apprendre">ابدأ التعلم</a>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="resources">
+      <h2
+        data-ar="📚 مصادر التعليم"
+        data-fr="📚 Ressources éducatives">
+        📚 مصادر التعليم
+      </h2>
+
+      <div class="cards">
+
+        <article class="card searchable">
+          <h3
+            data-ar="التعليم العالي في أوروبا"
+            data-fr="Enseignement supérieur en Europe">
+            التعليم العالي في أوروبا
+          </h3>
+
+          <p
+            data-ar="معلومات تساعدك على فهم أنظمة التعليم العالي في الدول الأوروبية."
+            data-fr="Des informations pour mieux comprendre les systèmes d’enseignement supérieur en Europe.">
+            معلومات تساعدك على فهم أنظمة التعليم العالي في الدول الأوروبية.
+          </p>
+
+          <a href="https://education.ec.europa.eu/"
+             target="_blank" rel="noopener noreferrer"
+             data-ar="استكشف"
+             data-fr="Explorer">استكشف</a>
+        </article>
+
+        <article class="card searchable">
+          <h3
+            data-ar="تطوير المهارات"
+            data-fr="Développement des compétences">
+            تطوير المهارات
+          </h3>
+
+          <p
+            data-ar="تعلم مهارات رقمية ومهنية تساعدك في دراستك ومستقبلك المهني."
+            data-fr="Apprenez des compétences numériques et professionnelles utiles pour vos études et votre carrière.">
+            تعلم مهارات رقمية ومهنية تساعدك في دراستك ومستقبلك المهني.
+          </p>
+
+          <a href="https://www.open.edu/openlearn/"
+             target="_blank" rel="noopener noreferrer"
+             data-ar="تعلم الآن"
+             data-fr="Apprendre">تعلم الآن</a>
+        </article>
+
+      </div>
+
+      <div class="notice"
+           data-ar="تنبيه: وجود رابط في هذا الموقع لا يعني أن التسجيل مفتوح حاليًا أو أن المنحة مضمونة. تحقق دائمًا من الشروط والمواعيد في الموقع الرسمي."
+           data-fr="Attention : la présence d’un lien sur ce site ne signifie pas que les candidatures sont actuellement ouvertes ni que la bourse est garantie. Vérifiez toujours les conditions et les dates sur le site officiel.">
+        تنبيه: وجود رابط في هذا الموقع لا يعني أن التسجيل مفتوح حاليًا أو أن المنحة مضمونة. تحقق دائمًا من الشروط والمواعيد في الموقع الرسمي.
+      </div>
+    </section>
+
+    <section id="about">
+      <h2
+        data-ar="من نحن"
+        data-fr="À propos de nous">
+        من نحن
+      </h2>
+
+      <div class="about">
+        <p
+          data-ar="Mauriweb منصة تهدف إلى مساعدة الطلاب والشباب في موريتانيا على اكتشاف فرص المنح الدراسية والتعليم والتدريب والعمل. نسعى إلى تقديم معلومات واضحة وروابط للمصادر الرسمية بالعربية والفرنسية."
+          data-fr="Mauriweb est une plateforme qui aide les étudiants et les jeunes en Mauritanie à découvrir des possibilités de bourses, d’études, de formation et d’emploi. Notre objectif est de présenter des informations claires et des liens vers des sources officielles en arabe et en français.">
+          Mauriweb منصة تهدف إلى مساعدة الطلاب والشباب في موريتانيا على اكتشاف فرص المنح الدراسية والتعليم والتدريب والعمل. نسعى إلى تقديم معلومات واضحة وروابط للمصادر الرسمية بالعربية والفرنسية.
+        </p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2
+        data-ar="اتصل بنا"
+        data-fr="Contactez-nous">
+        اتصل بنا
+      </h2>
+
+      <div class="about">
+        <p
+          data-ar="للتواصل أو اقتراح فرصة جديدة، يمكنك إضافة بريد إلكتروني مخصص للموقع هنا بعد إنشائه."
+          data-fr="Pour nous contacter ou proposer une nouvelle opportunité, vous pourrez ajouter ici une adresse e-mail dédiée au site après l’avoir créée.">
+          للتواصل أو اقتراح فرصة جديدة، يمكنك إضافة بريد إلكتروني مخصص للموقع هنا بعد إنشائه.
+        </p>
+      </div>
+    </section>
+
+    <p id="emptyMessage" class="empty-message"
+       data-ar="لم يتم العثور على نتائج. جرّب كلمات أخرى."
+       data-fr="Aucun résultat trouvé. Essayez d’autres mots.">
+      لم يتم العثور على نتائج. جرّب كلمات أخرى.
+    </p>
+
+  </main>
+
+  <footer>
+    <p>
+      © <span id="year"></span> Mauriweb
+    </p>
+
+    <p
+      data-ar="منصة فرص التعليم والعمل للشباب الموريتاني"
+      data-fr="Une plateforme d’opportunités éducatives et professionnelles pour les jeunes Mauritaniens">
+      منصة فرص التعليم والعمل للشباب الموريتاني
+    </p>
+  </footer>
+
+  <script>
+    let currentLanguage = "ar";
+
+    function changeLanguage(language) {
+      currentLanguage = language;
+
+      document.documentElement.lang = language;
+      document.documentElement.dir =
+        language === "ar" ? "rtl" : "ltr";
+
+      document.title = language === "ar"
+        ? "Mauriweb - فرص موريتانيا"
+        : "Mauriweb - Opportunités en Mauritanie";
+
+      document.querySelectorAll("[data-ar][data-fr]").forEach(function(element) {
+        element.textContent = element.getAttribute("data-" + language);
+      });
+
+      const searchInput = document.getElementById("searchInput");
+
+      searchInput.placeholder =
+        searchInput.getAttribute("data-placeholder-" + language);
+
+      searchInput.dir = language === "ar" ? "rtl" : "ltr";
+
+      searchCards();
+    }
+
+    function searchCards() {
+      const input = document
+        .getElementById("searchInput")
+        .value.trim()
+        .toLowerCase();
+
+      const cards = document.querySelectorAll(".searchable");
+      let visibleCount = 0;
+
+      cards.forEach(function(card) {
+        const text = (
+          card.innerText + " " +
+          card.innerHTML
+        ).toLowerCase();
+
+        const match = text.includes(input);
+
+        card.style.display = match ? "" : "none";
+
+        if (match) {
+          visibleCount++;
+        }
+      });
+
+      document.getElementById("emptyMessage").style.display =
+        visibleCount === 0 ? "block" : "none";
+    }
+
+    document.getElementById("searchInput").addEventListener(
+      "input",
+      searchCards
+    );
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
 
 </body>
 </html>
