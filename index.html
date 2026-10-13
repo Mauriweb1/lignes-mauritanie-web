@@ -1,83 +1,229 @@
-<!DOCTYPE html><html lang="fr">
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bonjour Mauritanie</title>  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: lightblue;
-      text-align: center;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    header {
-      background-color: #006233;
-      color: white;
-      padding: 20px;
-    }
+    <title>Mauriweb | فرص موريتانيا</title>
 
-    nav {
-      background-color: #ffffff;
-      padding: 15px;
-    }
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f3f7fa;
+            color: #222;
+            line-height: 1.8;
+        }
 
-    nav a {
-      color: #006233;
-      text-decoration: none;
-      margin: 8px;
-      font-weight: bold;
-    }
+        header {
+            background-color: #087f5b;
+            color: white;
+            text-align: center;
+            padding: 25px 10px;
+        }
 
-    main {
-      padding: 30px 15px;
-    }
+        header h1 {
+            margin: 0;
+            font-size: 32px;
+        }
 
-    h1 {
-      color: #006233;
-    }
+        nav {
+            background-color: #065f46;
+            text-align: center;
+            padding: 12px 5px;
+        }
 
-    .welcome {
-      background-color: white;
-      padding: 20px;
-      border-radius: 10px;
-      max-width: 600px;
-      margin: auto;
-    }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 8px;
+            display: inline-block;
+        }
 
-    footer {
-      background-color: #006233;
-      color: white;
-      padding: 15px;
-      margin-top: 30px;
-    }
-  </style></head><body>  <header>
-    <h1>Bonjour Mauritanie !</h1>
-    <p>Découvrez la Mauritanie et ses opportunités</p>
-  </header>  <nav>
-    <a href="#accueil">Accueil</a>
-    <a href="#actualites">Actualités</a>
-    <a href="#bourses">Bourses d’études</a>
-    <a href="#opportunites">Opportunités</a>
-  </nav>  <main>
-    <section id="accueil" class="welcome">
-      <h2>Bienvenue sur notre site</h2>
-      <p>Votre espace pour découvrir les actualités et les opportunités en Mauritanie.</p>
-    </section><section id="actualites">
-  <h2>Actualités</h2>
-  <p>Retrouvez ici les dernières actualités.</p>
-</section>
+        nav a:hover {
+            color: #ffd43b;
+        }
 
-<section id="bourses">
-  <h2>Bourses d’études</h2>
-  <p>Découvrez les possibilités de bourses et d’études.</p>
-</section>
+        .hero {
+            background-color: #d8f3e8;
+            text-align: center;
+            padding: 35px 15px;
+        }
 
-<section id="opportunites">
-  <h2>Opportunités</h2>
-  <p>Découvrez les offres de formation, de stage et d’emploi.</p>
-</section>
+        .container {
+            max-width: 950px;
+            margin: auto;
+            padding: 15px;
+        }
 
-  </main>  <footer>
-    <p>© 2026 Bonjour Mauritanie</p>
-  </footer></body>
-      </html>
+        section {
+            margin: 25px 0;
+        }
+
+        .card {
+            background-color: white;
+            padding: 18px;
+            margin: 15px 0;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 5px #0000000d;
+        }
+
+        .card h3 {
+            color: #087f5b;
+            margin-top: 0;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #087f5b;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .button:hover {
+            background-color: #065f46;
+        }
+
+        footer {
+            background-color: #065f46;
+            color: white;
+            text-align: center;
+            padding: 20px 10px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Mauriweb</h1>
+        <p>بوابتك إلى المنح الدراسية والفرص في موريتانيا</p>
+    </header>
+
+    <nav>
+        <a href="#home">الرئيسية</a>
+        <a href="#news">الأخبار</a>
+        <a href="#scholarships">المنح الدراسية</a>
+        <a href="#jobs">فرص العمل</a>
+        <a href="#about">من نحن</a>
+    </nav>
+
+    <div class="hero" id="home">
+        <h2>مرحبًا بك في Mauriweb</h2>
+        <p>نساعدك على اكتشاف المنح الدراسية وفرص التعليم والعمل.</p>
+    </div>
+
+    <main class="container">
+
+        <section id="news">
+            <h2>📰 آخر الأخبار</h2>
+
+            <div class="card">
+                <h3>أخبار التعليم في موريتانيا</h3>
+                <p>تابع أخبار التعليم والمسابقات والفرص التعليمية.</p>
+                <p>سيتم نشر الأخبار الجديدة هنا بعد التحقق من مصادرها.</p>
+            </div>
+        </section>
+
+        <section id="scholarships">
+            <h2>🎓 المنح الدراسية</h2>
+
+            <div class="card">
+                <h3>منح الدراسة في فرنسا</h3>
+                <p>
+                    تعرّف على معلومات الدراسة في فرنسا والمنح المتاحة
+                    وشروط التقديم للطلاب الدوليين.
+                </p>
+                <a class="button"
+                   href="https://www.campusfrance.org/"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    موقع Campus France
+                </a>
+            </div>
+
+            <div class="card">
+                <h3>منح الدراسة في أوروبا</h3>
+                <p>
+                    اكتشف معلومات عن برامج التعليم والمنح الأوروبية
+                    وفرص الدراسة الدولية.
+                </p>
+                <a class="button"
+                   href="https://education.ec.europa.eu/"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    بوابة التعليم الأوروبية
+                </a>
+            </div>
+
+            <div class="card">
+                <h3>منح الدراسة في روسيا</h3>
+                <p>
+                    تعرّف على معلومات الدراسة في روسيا
+                    وإجراءات التقديم للطلاب الأجانب.
+                </p>
+                <a class="button"
+                   href="https://education-in-russia.com/"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    بوابة الدراسة في روسيا
+                </a>
+            </div>
+
+            <div class="card">
+                <h3>البحث عن منح أخرى</h3>
+                <p>
+                    يمكنك البحث عن برامج المنح الدراسية
+                    وفرص التعليم العالي عبر الإنترنت.
+                </p>
+                <a class="button"
+                   href="https://www.studyin-uk.com/"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    معلومات الدراسة في بريطانيا
+                </a>
+            </div>
+        </section>
+
+        <section id="jobs">
+            <h2>💼 فرص العمل والتدريب</h2>
+
+            <div class="card">
+                <h3>فرص للشباب الموريتاني</h3>
+                <p>
+                    خصصنا هذا القسم لعرض فرص العمل والتدريب
+                    والمسابقات المهنية عند توفر معلومات موثوقة عنها.
+                </p>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2>ℹ️ من نحن؟</h2>
+
+            <div class="card">
+                <p>
+                    Mauriweb منصة تهدف إلى مساعدة الشباب الموريتاني
+                    على الوصول إلى المعلومات المتعلقة بالمنح الدراسية
+                    وفرص التعليم والعمل.
+                </p>
+
+                <p>
+                    نعمل على تقديم المعلومات بوضوح مع الإشارة
+                    إلى المصادر الأصلية للفرص.
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 Mauriweb - جميع الحقوق محفوظة</p>
+        <p>منصة للمعلومات والفرص في موريتانيا</p>
+    </footer>
+
+</body>
+</html>
