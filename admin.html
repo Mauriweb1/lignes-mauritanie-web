@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>لوحة تحكم فرص موريتانيا</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f1f7f2;
+      color: #214331;
+    }
+
+    header {
+      background: #176b45;
+      color: white;
+      text-align: center;
+      padding: 22px 12px;
+    }
+
+    header h1 {
+      margin: 0 0 8px;
+    }
+
+    main {
+      max-width: 850px;
+      margin: 20px auto;
+      padding: 12px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #d8e7dc;
+      border-radius: 12px;
+      padding: 18px;
+      margin-bottom: 18px;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    label {
+      display: block;
+      margin-top: 12px;
+      font-weight: bold;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 11px;
+      margin-top: 5px;
+      border: 1px solid #b9cfc0;
+      border-radius: 7px;
+      font-size: 16px;
+      background: white;
+    }
+
+    textarea {
+      min-height: 90px;
+    }
+
+    button {
+      padding: 11px 15px;
+      margin-top: 12px;
+      margin-left: 5px;
+      border: 0;
+      border-radius: 7px;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .primary {
+      background: #176b45;
+      color: white;
+    }
+
+    .secondary {
+      background: #e5efe8;
+      color: #214331;
+    }
+
+    .danger {
+      background: #b52d2d;
+      color: white;
+    }
+
+    .item {
+      border: 1px solid #d8e7dc;
+      border-radius: 9px;
+      padding: 13px;
+      margin-top: 12px;
+      overflow-wrap: anywhere;
+    }
+
+    .item h3 {
+      margin-top: 0;
+    }
+
+    .message {
+      margin-top: 12px;
+      padding: 10px;
+      background: #edf6ef;
+      border-radius: 7px;
+      overflow-wrap: anywhere;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .ltr {
+      direction: ltr;
+      text-align: left;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>فرص موريتانيا</h1>
+  <p>Mauriweb | لوحة تحكم المدير</p>
+</header>
+
+<main>
+
+  <!-- تسجيل الدخول -->
+  <section class="card" id="loginSection">
+    <h2>تسجيل دخول المدير</h2>
+
+    <form id="loginForm">
+      <label for="email">البريد الإلكتروني</label>
+      <input id="email" type="email" required autocomplete="username">
+
+      <label for="password">كلمة المرور</label>
+      <input id="password" type="password" required
+             autocomplete="current-password">
+
+      <button class="primary" type="submit">
+        تسجيل الدخول
+      </button>
+    </form>
+
+    <div id="loginMessage" class="message"></div>
+  </section>
+
+  <!-- لوحة التحكم -->
+  <section class="card hidden" id="dashboard">
+    <h2>إدارة الفرص</h2>
+
+    <p id="accountInfo"></p>
+
+    <button class="secondary" id="refreshButton">
+      تحديث القائمة
+    </button>
+
+    <button class="secondary" id="logoutButton">
+      تسجيل الخروج
+    </button>
+
+    <div id="mainMessage" class="message"></div>
+  </section>
+
+  <!-- نموذج إضافة وتعديل الفرص -->
+  <section class="card hidden" id="formSection">
+    <h2 id="formTitle">إضافة فرصة جديدة</h2>
+
+    <form id="opportunityForm">
+
+      <label for="title_ar">العنوان بالعربية</label>
+      <input id="title_ar" required maxlength="180">
+
+      <label for="title_fr">Titre en français</label>
+      <input id="title_fr" dir="ltr" maxlength="180">
+
+      <label for="category">نوع الفرصة</label>
+      <select id="category" required>
+        <option value="scholarship">منحة دراسية</option>
+        <option value="job">وظيفة</option>
+        <option value="training">تدريب</option>
+        <option value="competition">مسابقة</option>
+        <option value="other">أخرى</option>
+      </select>
+
+      <label for="status">حالة الفرصة</label>
+      <select id="status">
+        <option value="open">مفتوحة</option>
+        <option value="closed">منتهية</option>
+      </select>
+
+      <label for="deadline">آخر أجل للتقديم</label>
+      <input id="deadline" type="date">
+
+      <label for="link">رابط التقديم الرسمي</label>
+      <input id="link" type="url" class="ltr"
+             placeholder="https://example.com" required>
+
+      <label for="description_ar">الوصف بالعربية</label>
+      <textarea id="description_ar" required></textarea>
+
+      <label for="description_fr">Description en français</label>
+      <textarea id="description_fr" dir="ltr"></textarea>
+
+      <button class="primary" id="saveButton" type="submit">
+        حفظ الفرصة
+      </button>
+
+      <button class="secondary hidden" id="cancelButton" type="button">
+        إلغاء التعديل
+      </button>
+
+    </form>
+  </section>
+
+  <!-- قائمة الفرص -->
+  <section class="card hidden" id="listSection">
+    <h2>الفرص المحفوظة</h2>
+    <div id="opportunitiesList"></div>
+  </section>
+
+</main>
+
+<script type="module">
+
+  import { initializeApp } from
+    "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+
+  import {
+    getAuth,
+    signInWithEmailAndPassword,
+    onAuthStateChanged,
+    signOut
+  } from
+    "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
+
+  import {
+    getFirestore,
+    collection,
+    getDocs,
+    addDoc,
+    updateDoc,
+    deleteDoc,
+    doc,
+    serverTimestamp
+  } from
+    "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
+
+
+  // إعدادات مشروع Firebase
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyAM5u4MxN4vCdNIQPZYD57QFOk5WaJlDUw",
+    authDomain: "mauriweb-2d4fd.firebaseapp.com",
+    databaseURL: "https://mauriweb-2d4fd-default-rtdb.firebaseio.com",
+    projectId: "mauriweb-2d4fd",
+    storageBucket: "mauriweb-2d4fd.firebasestorage.app",
+    messagingSenderId: "260481944177",
+    appId: "1:260481944177:web:3098dd793a677fb7c529d0",
+    measurementId: "G-D4S4D4CQBW"
+  };
+
+
+  // تشغيل Firebase
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db = getFirestore(app);
+
+  const $ = id => document.getElementById(id);
+
+  let currentUser = null;
+  let editingId = null;
+
+
+  // إظهار الرسائل
+
+  function message(id, text) {
+    $(id).textContent = text;
+  }
+
+
+  // إظهار أو إخفاء لوحة التحكم
+
+  function showDashboard(isLoggedIn) {
+    $("loginSection").classList.toggle("hidden", isLoggedIn);
+    $("dashboard").classList.toggle("hidden", !isLoggedIn);
+    $("formSection").classList.toggle("hidden", !isLoggedIn);
+    $("listSection").classList.toggle("hidden", !isLoggedIn);
+  }
+
+
+  // تسجيل الدخول
+
+  $("loginForm").addEventListener("submit", async event => {
+    event.preventDefault();
+
+    message("loginMessage", "جارٍ تسجيل الدخول...");
+
+    try {
+      await signInWithEmailAndPassword(
+        auth,
+        $("email").value.trim(),
+        $("password").value
+      );
+
+      $("password").value = "";
+
+      message("loginMessage", "");
+
+    } catch (error) {
+      message(
+        "loginMessage",
+        "فشل تسجيل الدخول. تحقق من بياناتك. رمز الخطأ: " +
+        error.code
+      );
+    }
+  });
+
+
+  // تسجيل الخروج
+
+  $("logoutButton").addEventListener("click", async () => {
+    try {
+      await signOut(auth);
+    } catch (error) {
+      message("mainMessage", "تعذر تسجيل الخروج: " + error.code);
+    }
+  });
+
+
+  // متابعة حالة الحساب
+
+  onAuthStateChanged(auth, async user => {
+    currentUser = user;
+    showDashboard(!!user);
+
+    if (user) {
+      $("accountInfo").textContent =
+        "الحساب الحالي: " + (user.email || "المدير");
+
+      await loadOpportunities();
+    } else {
+      $("opportunitiesList").replaceChildren();
+      message("loginMessage", "");
+    }
+  });
+
+
+  // تجهيز بيانات الفرصة
+
+  function getOpportunityData() {
+    return {
+      title_ar: $("title_ar").value.trim(),
+      title_fr: $("title_fr").value.trim(),
+      category: $("category").value,
+      status: $("status").value,
+      deadline: $("deadline").value,
+      link: $("link").value.trim(),
+      description_ar: $("description_ar").value.trim(),
+      description_fr: $("description_fr").value.trim(),
+      updatedAt: serverTimestamp()
+    };
+  }
+
+
+  // عرض الفرص
+
+  async function loadOpportunities() {
+    if (!currentUser) return;
+
+    message("mainMessage", "جارٍ تحميل الفرص...");
+
+    const list = $("opportunitiesList");
+    list.replaceChildren();
+
+    try {
+      const snapshot = await getDocs(
+        collection(db, "opportunities")
+      );
+
+      if (snapshot.empty) {
+        message(
+          "mainMessage",
+          "قاعدة البيانات متصلة، لكن لا توجد فرص محفوظة بعد."
+        );
+        return;
+      }
+
+      snapshot.forEach(item => {
+        const data = item.data();
+
+        const article = document.createElement("article");
+        article.className = "item";
+
+        const title = document.createElement("h3");
+        title.textContent =
+          data.title_ar || data.title_fr || "فرصة جديدة";
+
+        const category = document.createElement("p");
+        category.textContent =
+          "الفئة: " + (data.category || "غير محددة");
+
+        const status = document.createElement("p");
+        status.textContent =
+          "الحالة: " +
+          (data.status === "closed" ? "منتهية" : "مفتوحة");
+
+        const deadline = document.createElement("p");
+        deadline.textContent =
+          "آخر أجل: " + (data.deadline || "غير محدد");
+
+        article.append(title, category, status, deadline);
+
+        const edit = document.createElement("button");
+        edit.className = "secondary";
+        edit.textContent = "تعديل";
+
+        edit.addEventListener("click", () => {
+          startEdit(item.id, data);
+        });
+
+        const remove = document.createElement("button");
+        remove.className = "danger";
+        remove.textContent = "حذف";
+
+        remove.addEventListener("click", async () => {
+          if (!confirm("هل تريد حذف هذه الفرصة؟")) return;
+
+          try {
+            await deleteDoc(
+              doc(db, "opportunities", item.id)
+            );
+
+            message("mainMessage", "تم حذف الفرصة.");
+            await loadOpportunities();
+
+          } catch (error) {
+            message(
+              "mainMessage",
+              "تعذر الحذف. تحقق من صلاحيات المدير. " +
+              error.code
+            );
+          }
+        });
+
+        article.append(edit, remove);
+        list.append(article);
+      });
+
+      message("mainMessage", "تم تحميل الفرص.");
+
+    } catch (error) {
+      message(
+        "mainMessage",
+        "تعذر تحميل الفرص. رمز الخطأ: " + error.code
+      );
+    }
+  }
+
+
+  // إضافة فرصة أو حفظ التعديلات
+
+  $("opportunityForm").addEventListener("submit", async event => {
+    event.preventDefault();
+
+    if (!currentUser) {
+      message("mainMessage", "سجّل الدخول أولاً.");
+      return;
+    }
+
+    $("saveButton").disabled = true;
+
+    try {
+      const data = getOpportunityData();
+
+      if (editingId) {
+        await updateDoc(
+          doc(db, "opportunities", editingId),
+          data
+        );
+
+        message("mainMessage", "تم تعديل الفرصة بنجاح.");
+
+      } else {
+        data.createdAt = serverTimestamp();
+
+        await addDoc(
+          collection(db, "opportunities"),
+          data
+        );
+
+        message("mainMessage", "تمت إضافة الفرصة بنجاح.");
+      }
+
+      resetForm();
+      await loadOpportunities();
+
+    } catch (error) {
+      message(
+        "mainMessage",
+        "تعذر حفظ الفرصة. تحقق من صلاحيات المدير. " +
+        error.code
+      );
+
+    } finally {
+      $("saveButton").disabled = false;
+    }
+  });
+
+
+  // بدء تعديل فرصة
+
+  function startEdit(id, data) {
+    editingId = id;
+
+    $("formTitle").textContent = "تعديل الفرصة";
+    $("title_ar").value = data.title_ar || "";
+    $("title_fr").value = data.title_fr || "";
+    $("category").value = data.category || "other";
+    $("status").value = data.status || "open";
+    $("deadline").value = data.deadline || "";
+    $("link").value = data.link || "";
+    $("description_ar").value = data.description_ar || "";
+    $("description_fr").value = data.description_fr || "";
+
+    $("saveButton").textContent = "حفظ التعديلات";
+    $("cancelButton").classList.remove("hidden");
+
+    $("formSection").scrollIntoView({
+      behavior: "smooth"
+    });
+  }
+
+
+  // إلغاء التعديل وإعادة النموذج
+
+  function resetForm() {
+    editingId = null;
+
+    $("opportunityForm").reset();
+
+    $("formTitle").textContent = "إضافة فرصة جديدة";
+    $("saveButton").textContent = "حفظ الفرصة";
+
+    $("cancelButton").classList.add("hidden");
+  }
+
+
+  $("cancelButton").addEventListener("click", resetForm);
+
+  $("refreshButton").addEventListener(
+    "click",
+    loadOpportunities
+  );
+
+</script>
+
+</body>
+  </html>
